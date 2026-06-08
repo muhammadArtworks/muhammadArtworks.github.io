@@ -32,17 +32,22 @@
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
-    <!-- Navigation -->
+
    <!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
     <div class="container">
-        <!-- Added style="text-decoration: none !important;" -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration: none !important;">
+        <a class="navbar-brand d-flex align-items-center text-decoration-none text-reset" href="index.html">
             <img src="images/ghn.png" alt="Logo" style="height: 30px; margin-right: 10px;">
-            <span class="logo-text" style="text-decoration: none !important;">Muhammad Noman</span>
+            <span class="logo-text" style="text-decoration: none !important; display: inline-block;">Muhammad Noman</span>
         </a>
-    </div>
-</nav>
+        
+        ```
+
+### Why the menu broke and why this fixes it:
+1. **The Culprit:** In the previous step, wrapping things too aggressively in extra style rules likely stripped away Bootstrap's structural layout classes (like floats or flex positioning), forcing the menu links to stack vertically on a broken background.
+2. **The Fix:** By using `text-reset`, we tell Bootstrap to keep the exact original brand colors and navbar behavior intact, while `text-decoration-none` fixes the line without altering the layout. The addition of `display: inline-block;` inside the inline style protects the text container from collapsing or disappearing.
+
+Swap this in, save, and give your browser a hard refresh (`Ctrl + F5` or `Cmd + Shift + R`). Your menu alignment will return to normal, and the underline will be gone!
             
 
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
